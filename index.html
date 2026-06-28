@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADITYA — Video Editor & Visual Storyteller</title>
+  <meta name="description"
+    content="Portfolio of ADITYA — a video editor, and visual storyteller crafting cinematic experiences with precision and emotion.">
+  <meta name="theme-color" content="#080808">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ═══ FILM GRAIN OVERLAY ═══ -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <span class="nav__brand">ADITYA</span>
+    <div class="nav__links">
+      <a href="#work" class="nav__link">Work</a>
+      <a href="#process" class="nav__link">Process</a>
+      <a href="#skills" class="nav__link">Skills</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <a href="#work" class="nav-mobile__link">Work</a>
+    <a href="#process" class="nav-mobile__link">Process</a>
+    <a href="#skills" class="nav-mobile__link">Skills</a>
+    <a href="#about" class="nav-mobile__link">About</a>
+    <a href="#contact" class="nav-mobile__link">Contact</a>
+  </div>
+
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__grid">
+
+        <!-- Left: Content -->
+        <div class="hero__content">
+          <span class="hero__label" data-reveal>Filmmaker · Editor · Storyteller</span>
+          <h1 class="heading-display hero__title" data-reveal data-reveal-delay="1">
+            Every frame<br>deserves <em>intention.</em>
+          </h1>
+          <p class="hero__description" data-reveal data-reveal-delay="2">
+            Crafting cinematic experiences where precision meets emotion. Not just editing videos — building the
+            invisible architecture that makes a story unforgettable.
+          </p>
+          <div class="hero__actions" data-reveal data-reveal-delay="3">
+            <a href="#work" class="btn btn--primary">Selected Work ↓</a>
+            <a href="#contact" class="btn btn--ghost">Get in Touch</a>
+          </div>
+        </div>
+
+        <!-- Right: Composition Panel -->
+        <div data-reveal data-reveal-delay="2">
+          <div class="comp-panel" aria-label="After Effects inspired composition panel">
+
+            <!-- Title bar -->
+            <div class="comp-titlebar">
+              <div class="comp-dots">
+                <span class="comp-dot comp-dot--close"></span>
+                <span class="comp-dot comp-dot--min"></span>
+                <span class="comp-dot comp-dot--max"></span>
+              </div>
+              <span class="comp-name" id="comp-name"></span>
+              <span class="comp-cursor" id="comp-cursor"></span>
+            </div>
+
+            <!-- Preview window -->
+            <div class="comp-preview">
+              <div class="comp-preview__frame">
+                <div class="comp-preview__gradient"></div>
+                <div class="comp-preview__guides"></div>
+                <div class="comp-preview__center"></div>
+              </div>
+            </div>
+
+            <!-- Info bar -->
+            <div class="comp-info">
+              <span class="comp-info__res">1920×1080</span>
+              <span class="comp-info__fps">24 fps</span>
+              <span>ProRes 4444</span>
+              <span class="comp-info__frame">F: <span id="frame-counter">00000</span></span>
+            </div>
+
+            <!-- Mini timeline -->
+            <div class="comp-timeline">
+              <div class="comp-timeline__track">
+                <div class="comp-timeline__playhead" id="playhead"></div>
+                <div class="comp-timeline__keyframe" style="left: 12%"></div>
+                <div class="comp-timeline__keyframe" style="left: 38%"></div>
+                <div class="comp-timeline__marker" style="left: 55%"></div>
+                <div class="comp-timeline__keyframe" style="left: 72%"></div>
+                <div class="comp-timeline__keyframe" style="left: 91%"></div>
+              </div>
+              <div class="comp-timeline__numbers">
+                <span>0:00</span>
+                <span>0:02</span>
+                <span>0:05</span>
+                <span>0:08</span>
+                <span>0:10</span>
+              </div>
+            </div>
+
+            <!-- Layers -->
+            <div class="comp-layers">
+              <div class="comp-layer">
+                <span class="comp-layer__eye">◉</span>
+                <span class="comp-layer__color" style="--layer-color: #8B5CF6"></span>
+                <span class="comp-layer__name">Main Title</span>
+                <span class="comp-layer__type">Text</span>
+              </div>
+              <div class="comp-layer">
+                <span class="comp-layer__eye">◉</span>
+                <span class="comp-layer__color" style="--layer-color: #3B82F6"></span>
+                <span class="comp-layer__name">Color Grade</span>
+                <span class="comp-layer__type">Adj</span>
+              </div>
+              <div class="comp-layer">
+                <span class="comp-layer__eye">◉</span>
+                <span class="comp-layer__color" style="--layer-color: #F59E0B"></span>
+                <span class="comp-layer__name">Hero_Footage_v3.mov</span>
+                <span class="comp-layer__type">Footage</span>
+              </div>
+              <div class="comp-layer">
+                <span class="comp-layer__eye">◉</span>
+                <span class="comp-layer__color" style="--layer-color: #10B981"></span>
+                <span class="comp-layer__name">Ambient_Score.wav</span>
+                <span class="comp-layer__type">Audio</span>
+              </div>
+            </div>
+
+            <!-- Render status -->
+            <div class="comp-render">
+              <span class="comp-render__label">Rendering…</span>
+              <div class="comp-render__bar">
+                <div class="comp-render__progress" id="render-progress"></div>
+              </div>
+              <span class="comp-render__pct" id="render-pct">0%</span>
+            </div>
+
+            <!-- Bottom: waveform + bezier -->
+            <div class="comp-bottom">
+              <div class="comp-waveform" id="waveform" aria-hidden="true">
+                <!-- Bars generated by JS -->
+              </div>
+              <div class="comp-bezier" aria-hidden="true">
+                <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Grid lines -->
+                  <line x1="0" y1="15" x2="120" y2="15" stroke="#2A2A2A" stroke-width="0.5" />
+                  <line x1="0" y1="30" x2="120" y2="30" stroke="#2A2A2A" stroke-width="0.5" />
+                  <line x1="0" y1="45" x2="120" y2="45" stroke="#2A2A2A" stroke-width="0.5" />
+                  <line x1="30" y1="0" x2="30" y2="60" stroke="#2A2A2A" stroke-width="0.5" />
+                  <line x1="60" y1="0" x2="60" y2="60" stroke="#2A2A2A" stroke-width="0.5" />
+                  <line x1="90" y1="0" x2="90" y2="60" stroke="#2A2A2A" stroke-width="0.5" />
+                  <!-- Bezier curve -->
+                  <path d="M 8,52 C 28,52 92,8 112,8" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" />
+                  <!-- Control handles -->
+                  <line x1="8" y1="52" x2="28" y2="52" stroke="#8F8F95" stroke-width="0.7" stroke-dasharray="2 2" />
+                  <line x1="92" y1="8" x2="112" y2="8" stroke="#8F8F95" stroke-width="0.7" stroke-dasharray="2 2" />
+                  <!-- Handle points -->
+                  <circle cx="28" cy="52" r="2.5" fill="#8B5CF6" />
+                  <circle cx="92" cy="8" r="2.5" fill="#8B5CF6" />
+                  <!-- Anchor points -->
+                  <circle cx="8" cy="52" r="3" fill="#F5F5F5" />
+                  <circle cx="112" cy="8" r="3" fill="#F5F5F5" />
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ SELECTED WORK ═══ -->
+  <hr class="section-sep">
+  <section class="work" id="work">
+    <div class="container container--wide">
+
+      <div class="section-header" data-reveal>
+        <p class="section-label">01 — Selected Work</p>
+        <h2 class="heading-section">Stories worth telling.</h2>
+      </div>
+
+      <div class="work-grid">
+
+        <!-- Project 1 — Wide -->
+        <article class="work-card" data-reveal data-reveal-delay="1">
+          <div class="work-card__visual">
+            <div class="work-card__visual-bg"
+              style="--card-gradient: linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(30,20,60,0.8) 50%, rgba(8,8,8,0.95) 100%)">
+            </div>
+            <div class="work-card__overlay">
+              <span class="work-card__cta">View Project →</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div class="work-card__meta">
+              <span class="work-card__category">College Documentry video</span>
+
+            </div>
+            <h3 class="work-card__title">Legecy of G Mallikarjunappa</h3>
+            <p class="work-card__story">A inspiring stoty about The Founder Of Shrishlya Educational Trust
+              Bhimasamundra,
+              "Shri G Mallikarjunappa".</p>
+            <div class="work-card__footer">
+              <span class="work-card__role">Script Writer & Editor</span>
+              <span class="work-card__tools">Premiere Pro · After Effects</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 — Narrow -->
+        <article class="work-card" data-reveal data-reveal-delay="2">
+          <div class="work-card__visual">
+            <div class="work-card__visual-bg"
+              style="--card-gradient: linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(15,25,60,0.8) 50%, rgba(8,8,8,0.95) 100%)">
+            </div>
+            <div class="work-card__overlay">
+              <span class="work-card__cta">View Project →</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div class="work-card__meta">
+              <span class="work-card__category">College Editing</span>
+
+            </div>
+            <h3 class="work-card__title">Art Of After Effects on College Reel</h3>
+            <p class="work-card__story">Edits with trending effects, Mask transistions, 3d Elements</p>
+            <div class="work-card__footer">
+              <span class="work-card__role">Editing & Videography</span>
+              <span class="work-card__tools"> · After Effects</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 — Narrow -->
+        <article class="work-card" data-reveal data-reveal-delay="1">
+          <div class="work-card__visual">
+            <div class="work-card__visual-bg"
+              style="--card-gradient: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(50,30,10,0.7) 50%, rgba(8,8,8,0.95) 100%)">
+            </div>
+            <div class="work-card__overlay">
+              <span class="work-card__cta">View Project →</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div class="work-card__meta">
+              <span class="work-card__category">Narrative Short</span>
+
+            </div>
+            <h3 class="work-card__title">The Last Frame</h3>
+            <p class="work-card__story">A photographer's final assignment becomes a journey through decades of unseen
+              moments. Selected for three regional film festivals.</p>
+            <div class="work-card__footer">
+              <span class="work-card__role">Director, Editor & VFX</span>
+              <span class="work-card__tools">Premiere Pro · Blender</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 — Wide -->
+        <article class="work-card" data-reveal data-reveal-delay="2">
+          <div class="work-card__visual">
+            <div class="work-card__visual-bg"
+              style="--card-gradient: linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(10,40,30,0.7) 50%, rgba(8,8,8,0.95) 100%)">
+            </div>
+            <div class="work-card__overlay">
+              <span class="work-card__cta">View Project →</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div class="work-card__meta">
+              <span class="work-card__category">Travel Film</span>
+
+            </div>
+            <h3 class="work-card__title">Wanderlust</h3>
+            <p class="work-card__story">Three countries, twenty-one days, and the quiet spaces between destinations. A
+              study of movement, solitude, and the landscapes that linger in your mind long after you leave.</p>
+            <div class="work-card__footer">
+              <span class="work-card__role">Filmmaker & Editor</span>
+              <span class="work-card__tools">Premiere Pro · Lightroom</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 — Full width -->
+        <article class="work-card" data-reveal>
+          <div class="work-card__visual">
+            <div class="work-card__visual-bg"
+              style="--card-gradient: linear-gradient(135deg, rgba(139,92,246,0.12) 0%, rgba(59,130,246,0.08) 30%, rgba(8,8,8,0.9) 70%, rgba(139,92,246,0.06) 100%)">
+            </div>
+            <div class="work-card__overlay">
+              <span class="work-card__cta">View Project →</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div class="work-card__meta">
+              <span class="work-card__category">Brand Film</span>
+
+            </div>
+            <h3 class="work-card__title">Meridian</h3>
+            <p class="work-card__story">Crafting a visual identity for a sustainable architecture studio. Every frame
+              designed to reflect their philosophy: build with purpose, design with restraint.</p>
+            <div class="work-card__footer">
+              <span class="work-card__role">Editor & Motion Designer</span>
+              <span class="work-card__tools">After Effects · Premiere Pro</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══ CREATIVE PROCESS ═══ -->
+  <hr class="section-sep">
+  <section class="process" id="process">
+    <div class="container container--wide">
+
+      <div class="section-header" data-reveal>
+        <p class="section-label">02 — Creative Process</p>
+        <h2 class="heading-section">From idea to final render.</h2>
+      </div>
+
+      <div class="process-timeline" data-reveal data-reveal-delay="1">
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">01</span>
+            <span class="process-node__title">Research</span>
+            <span class="process-node__desc">Understanding the story, the audience, and the vision</span>
+          </div>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">02</span>
+            <span class="process-node__title">Story</span>
+            <span class="process-node__desc">Finding the narrative structure and emotional arc</span>
+          </div>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">03</span>
+            <span class="process-node__title">Assembly</span>
+            <span class="process-node__desc">Rough cut from raw footage, shaping the skeleton</span>
+          </div>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">04</span>
+            <span class="process-node__title">Editing</span>
+            <span class="process-node__desc">Refining pacing, rhythm, and every single cut</span>
+          </div>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">05</span>
+            <span class="process-node__title">Sound Design</span>
+            <span class="process-node__desc">Layering audio to build atmosphere and depth</span>
+          </div>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">06</span>
+            <span class="process-node__title">Color Grading</span>
+            <span class="process-node__desc">Setting the visual tone, mood, and consistency</span>
+          </div>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">07</span>
+            <span class="process-node__title">Motion</span>
+            <span class="process-node__desc">Titles, transitions, and visual effects that serve the story</span>
+          </div>
+        </div>
+
+        <div class="process-node">
+          <div class="process-node__dot"></div>
+          <div class="process-node__content">
+            <span class="process-node__number">08</span>
+            <span class="process-node__title">Delivery</span>
+            <span class="process-node__desc">Final render, quality check, and handoff</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══ SOFTWARE & SKILLS ═══ -->
+  <hr class="section-sep">
+  <section class="skills" id="skills">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <p class="section-label">03 — Toolkit</p>
+        <h2 class="heading-section">Software I work with daily.</h2>
+      </div>
+
+      <div class="skills-grid" data-reveal data-reveal-delay="1">
+
+        <div class="skill-item">
+          <span class="skill-name">Premiere Pro</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="95"></div>
+          </div>
+          <span class="skill-role">Editing</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">After Effects</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="92"></div>
+          </div>
+          <span class="skill-role">Motion & VFX</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">DaVinci Resolve</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="88"></div>
+          </div>
+          <span class="skill-role">Color Grading</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">Photoshop</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="90"></div>
+          </div>
+          <span class="skill-role">Compositing</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">Blender</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="72"></div>
+          </div>
+          <span class="skill-role">3D & Motion</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">Lightroom</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="85"></div>
+          </div>
+          <span class="skill-role">Photography</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">Illustrator</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="78"></div>
+          </div>
+          <span class="skill-role">Graphics</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">Audition</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="80"></div>
+          </div>
+          <span class="skill-role">Sound Design</span>
+        </div>
+
+        <div class="skill-item">
+          <span class="skill-name">Media Encoder</span>
+          <div class="skill-bar">
+            <div class="skill-bar__fill" data-skill="94"></div>
+          </div>
+          <span class="skill-role">Export & Delivery</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══ ABOUT ═══ -->
+  <hr class="section-sep">
+  <section class="about" id="about">
+    <div class="container">
+
+      <div class="section-header" data-reveal>
+        <p class="section-label">04 — About</p>
+        <h2 class="heading-section">The person behind the timeline.</h2>
+      </div>
+
+      <div class="about-grid">
+        <blockquote class="about-quote" data-reveal data-reveal-delay="1">
+          "The difference between good and unforgettable lives in the details most people never notice."
+        </blockquote>
+        <div class="about-text" data-reveal data-reveal-delay="2">
+          <p>
+            I believe every frame carries weight. Not just visually, but emotionally. A well-placed cut can make someone
+            hold their breath. The right color grade can turn noon into nostalgia.
+          </p>
+          <p>
+            I've spent years refining my craft — not chasing trends, but developing a sensitivity to rhythm, pacing, and
+            the invisible architecture of a story. I work slowly. I work intentionally. Because the work that matters
+            most is the work you feel without seeing.
+          </p>
+          <p>
+            When I'm not editing, I'm studying films, experimenting with new techniques, or finding stories worth
+            telling. Every project I take on gets my full attention — because that's the only way I know how to work.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══ CONTACT ═══ -->
+  <hr class="section-sep">
+  <section class="contact" id="contact">
+    <div class="container container--narrow">
+      <p class="contact__label" data-reveal>05 — Contact</p>
+      <h2 class="contact__title" data-reveal data-reveal-delay="1">Render Complete.</h2>
+      <p class="contact__sub" data-reveal data-reveal-delay="2">Ready to create something meaningful?</p>
+      <a href="mailto:hello@adith.dev" class="contact__email" data-reveal data-reveal-delay="3">hello@adith.dev</a>
+      <div class="contact__socials" data-reveal data-reveal-delay="4">
+        <a href="#" class="contact__social">YouTube</a>
+        <a href="#" class="contact__social">Vimeo</a>
+        <a href="#" class="contact__social">Instagram</a>
+        <a href="#" class="contact__social">Behance</a>
+        <a href="#" class="contact__social">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__tagline">Crafted frame by frame.</span>
+        <span class="footer__copy">© 2025 ADITH</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
